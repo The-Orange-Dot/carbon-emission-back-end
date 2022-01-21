@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_15_145811) do
+ActiveRecord::Schema.define(version: 2022_01_21_175429) do
+
+  create_table "country_average_capita", force: :cascade do |t|
+    t.string "country"
+    t.float "average"
+  end
 
   create_table "electricity_histories", force: :cascade do |t|
     t.string "date"

@@ -7,8 +7,21 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/users" do
-    users = User.all
-    users.to_json
+   User.all.to_json
+  end
+
+  get "/users/:id" do
+    user = User.all.find(params[:id])
+    user.to_json
+  end
+
+  get "/countryAverageCapita" do
+    country = CountryAverageCapita.all
+    country.to_json
+  end
+
+  patch "/users/:id" do
+     puts params 
   end
 
 end
