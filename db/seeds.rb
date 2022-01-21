@@ -47,6 +47,13 @@ end
   )
   end
 
+20.times do
+  CountryAverageCapita.create(
+    country: Faker::Address.country,
+    average: rand(5..1000)
+  )
+end
+
 id_counter = User.all.first.id
 
 User.all.length.times do

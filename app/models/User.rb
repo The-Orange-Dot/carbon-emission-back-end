@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :vehicle_histories
   
 
+
   def flightHistory
     self.flight_histories
   end
@@ -21,4 +22,5 @@ class User < ActiveRecord::Base
     self.electricity_histories
   end
   
+
 end
