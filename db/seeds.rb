@@ -35,6 +35,18 @@ end
   )
 end
 
+50.times do
+  VehicleHistory.create(
+    date: "#{Faker::Date.between(from: '2014-01-23', to: '2022-09-25')}T#{Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default).split[4]}.008Z",
+    distance_value: rand(10..500),
+    distance_unit: "mi",
+    vehicle_make: Faker::Vehicle.make,
+    vehicle_model: Faker::Vehicle.model,
+    vehicle_year: rand(2000..2022),
+    carbon_lb: rand(50..200),
+  )
+  end
+
 id_counter = User.all.first.id
 
 User.all.length.times do
