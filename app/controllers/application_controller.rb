@@ -1,3 +1,5 @@
+require "pry"
+
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -23,6 +25,7 @@ class ApplicationController < Sinatra::Base
   end
 
   delete "/flight_histories/:id/" do
+    binding.pry
     FlightHistory.find(params[:id]).destroy.to_json
   end
 
