@@ -1,7 +1,7 @@
 puts "🌱 Seeding spices..."
 delivery_type = ["plane", "truck", "ship", "train"]
 
-50.times do
+10.times do
   user_name = "#{Faker::Superhero.prefix}-#{Faker::Food.dish.split[0]}"
   User.create(
     first_name: Faker::Name.first_name,
@@ -13,7 +13,7 @@ delivery_type = ["plane", "truck", "ship", "train"]
   )
 end
 
-30.times do
+10.times do
   FlightHistory.create(
     date: "#{Faker::Date.between(from: '2014-01-23', to: '2022-09-25')}T#{Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default).split[4]}.008Z",
     passengers: rand(1..3),
@@ -24,7 +24,7 @@ end
   )
 end
 
-200.times do
+10.times do
   ShippingHistory.create(
     date: "#{Faker::Date.between(from: '2014-01-23', to: '2022-09-25')}T#{Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default).split[4]}.008Z",
     weight: rand(1..30),
@@ -35,7 +35,7 @@ end
   )
 end
 
-50.times do
+10.times do
   VehicleHistory.create(
     date: "#{Faker::Date.between(from: '2014-01-23', to: '2022-09-25')}T#{Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default).split[4]}.008Z",
     distance_value: rand(10..500),
@@ -47,7 +47,7 @@ end
   )
   end
 
-20.times do
+10.times do
   CountryAverageCapita.create(
     country: Faker::Address.country,
     average: rand(5..1000)

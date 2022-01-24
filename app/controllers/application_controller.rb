@@ -12,20 +12,19 @@ class ApplicationController < Sinatra::Base
     User.all.to_json
   end
 
-  delete "/shipping_histories/:id/" do
+  delete "/shipping_histories/:id" do
     ShippingHistory.find(params[:id]).destroy.to_json
   end
 
-  delete "/vehicle_histories/:id/" do
+  delete "/vehicle_histories/:id" do
     VehicleHistory.find(params[:id]).destroy.to_json
   end
 
-  delete "/electricity_histories/:id/" do
+  delete "/electricity_histories/:id" do
     ElectricityHistory.find(params[:id]).destroy.to_json
   end
 
-  delete "/flight_histories/:id/" do
-    binding.pry
+  delete "/flight_histories/:id" do
     FlightHistory.find(params[:id]).destroy.to_json
   end
 
@@ -36,7 +35,7 @@ class ApplicationController < Sinatra::Base
       distance: params[:distance],
       method: params[:method],
       carbon_lb: params[:carbon_lb],
-      user_id: params[:user.id]
+      user_id: params[:user_id]
     ).to_json
   end
 
@@ -47,7 +46,7 @@ class ApplicationController < Sinatra::Base
       departure: params[:departure],
       destination: params[:destination],
       carbon_lb: params[:carbon_lb],
-      user_id: params[:user.id]
+      user_id: params[:user_id]
     ).to_json
   end
 
@@ -60,7 +59,7 @@ class ApplicationController < Sinatra::Base
       vehicle_model: params[:vehicle_model],
       vehicle_year: params[:vehicle_year],
       carbon_lb: params[:carbon_lb],
-      user_id: params[:user.id]
+      user_id: params[:user_id]
     ).to_json
   end
 
@@ -72,7 +71,7 @@ class ApplicationController < Sinatra::Base
       state: params[:state],
       electricity_value: params[:electricity_value],
       carbon_lb: params[:carbon_lb],
-      user_id: params[:user.id]
+      user_id: params[:user_id]
     ).to_json
   end
 
@@ -94,6 +93,18 @@ class ApplicationController < Sinatra::Base
   
   get "/countryAverageCapita" do
     CountryAverageCapita.all.to_json
+  end
+
+  patch "/user/:id" do
+    user = User.find(params[:id])  
+  
+    user.update(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      password: params[:password],
+      email: params[:email],
+      image: params[:image]
+    )
   end
 
 end
