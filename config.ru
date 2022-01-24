@@ -13,3 +13,9 @@ use Rack::JSONBodyParser
 
 # Our application
 run ApplicationController
+use ElectricityHistoriesController
+use FlightHistoriesController
+use VehicleHistoriesController
+use ShippingHistoriesController
+use CountryAverageCapitaController
+use UsersController
