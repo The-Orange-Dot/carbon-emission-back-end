@@ -89,6 +89,8 @@ class ApplicationController < Sinatra::Base
     VehicleHistory.all.to_json
   end
   
-
+  get "/countryAverageCapita" do
+    CountryAverageCapita.all.to_json
+  end
 
 end
