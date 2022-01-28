@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # A DSL for quickly creating web applications
 # https://github.com/sinatra/sinatra
 gem "sinatra", "~> 2.1"
+gem "pg"
 
 # A fast and simple web server
 # https://github.com/macournoyer/thin
@@ -28,8 +29,6 @@ gem "sinatra-activerecord", "~> 2.0"
 # https://github.com/ruby/rake
 gem "rake", "~> 13.0"
 
-# Provides functionality to interact with a SQLite3 database
-gem "sqlite3", "~> 1.4"
 
 # Require all files in a folder
 gem "require_all", "~> 3.0"
@@ -39,6 +38,8 @@ gem "faker"
 
 # These gems will only be used when we are running the application locally
 group :development do
+  # Provides functionality to interact with a SQLite3 database
+  gem "sqlite3", "~> 1.4"
   gem "pry", "~> 0.14.1"
 
   # Automatically reload when there are changes
